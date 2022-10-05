@@ -1,0 +1,23 @@
+{
+  "name": "xhair",
+  "version": "1.0.0",
+  "description": "A crosshair overlay utility",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlphaLupine/xhair.git"
+  },
+  "author": "Lupine",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/AlphaLupine/xhair/issues"
+  },
+  "homepage": "https://github.com/AlphaLupine/xhair#readme",
+  "devDependencies": {
+    "electron": "^21.0.1"
+  }
+}
