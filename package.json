@@ -19,5 +19,8 @@
   "homepage": "https://github.com/AlphaLupine/xhair#readme",
   "devDependencies": {
     "electron": "^21.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
   }
 }
