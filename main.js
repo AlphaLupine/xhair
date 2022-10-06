@@ -1,6 +1,8 @@
-const { app, BrowserWindow, ipcMain } = require ("electron")
+const { app, BrowserWindow, ipcMain, screen } = require ("electron")
 const path = require("path")
 require("dotenv").config()
+
+let mainScreen
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -19,11 +21,14 @@ app.whenReady().then(() => {
     app.on("activate", () => {
         if(BrowserWindow.getAllWindows === 0) createWindow()
     })
+
+    mainScreen = screen.getPrimaryDisplay();
 })
 
 app.on("window-all-closed", () => {
     if(!process.platform !== "darwin") app.quit()
 })
+
 
 ipcMain.handle("testhair", () => {
     const win = new BrowserWindow({
@@ -36,9 +41,11 @@ ipcMain.handle("testhair", () => {
         maximizable: false,
         minimizable: false,
         movable: false,
-        resizable: false
+        resizable: false,
+        skipTaskbar: true,
+        x: (mainScreen.size.width / 2) - 50,
+        y: (mainScreen.size.height / 2) - 50
     })
     win.loadFile(`src/renderer/crosshair.html`)
-    win.center()
     win.show()
 })
