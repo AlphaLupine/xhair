@@ -24,3 +24,21 @@ app.whenReady().then(() => {
 app.on("window-all-closed", () => {
     if(!process.platform !== "darwin") app.quit()
 })
+
+ipcMain.handle("testhair", () => {
+    const win = new BrowserWindow({
+        width: 100,
+        height: 100,
+        frame: false,
+        transparent: true,
+        closable: true,
+        alwaysOnTop: true,
+        maximizable: false,
+        minimizable: false,
+        movable: false,
+        resizable: false
+    })
+    win.loadFile(`src/renderer/crosshair.html`)
+    win.center()
+    win.show()
+})
